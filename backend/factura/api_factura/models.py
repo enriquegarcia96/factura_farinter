@@ -44,3 +44,4 @@ class Producto(models.Model):
 class Factura_detalle(models.Model):
     factura_numero_factura = models.ForeignKey(Factura, on_delete=models.CASCADE)
     producto_id = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.DecimalField(max_digits=3, decimal_places=2, null=True)
