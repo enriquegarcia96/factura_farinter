@@ -1,9 +1,8 @@
 import ReactDOM from "react-dom";
-
-import { Button } from './Button'
+import { App } from "./App";
 
 ReactDOM.render(
-  <Button />,
+  <App />,
 
   document.getElementById("root")
 );
