@@ -7,9 +7,9 @@ class Cliente(models.Model):
     direccion = models.CharField(max_length=45)
 class Impuestos(models.Model):
     nombre = models.CharField(max_length=25)
-    valor = models.DecimalField
+    valor = models.DecimalField(max_digits=4, decimal_places=2)
     estado = models.CharField(max_length=1)
-    telefono = models.CharField(max_length=8)
+    
 
 class Factura(models.Model):
     cliente_identidad  = models.ForeignKey(Cliente, on_delete=models.CASCADE)
@@ -20,7 +20,8 @@ class Factura(models.Model):
 
 class Descuentos(models.Model):
     nombre = models.CharField(max_length=25)
-    valor = models.DecimalField
+    valor = models.DecimalField(max_digits=4, decimal_places=2)
+    estado = models.CharField(max_length=1, default=1)
 
 
 class Factura_descuentos(models.Model):
@@ -35,7 +36,7 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     categoria_id = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    precio_venta = models.DecimalField
+    precio_venta = models.DecimalField(max_digits=4, decimal_places=2)
     nombre_producto = models.CharField(max_length=45)
     fecha_elaboracion = models.DateField(auto_now_add=False)
     fecha_vencimiento  = models.DateField(auto_now_add=False)
